@@ -1,7 +1,8 @@
-package com.example.demo.announcement.model;
+package com.example.demo.announcement.model.entity;
 
 import com.example.demo.announcement.model.entity.BaseEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "announcements")
 public class AnnouncementEntity extends BaseEntity {
