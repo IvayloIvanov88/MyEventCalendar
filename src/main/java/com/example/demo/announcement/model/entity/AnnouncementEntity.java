@@ -22,7 +22,7 @@ public class AnnouncementEntity extends BaseEntity {
 
     @NotNull
     @Column(name = "updated_on")
-    private Instant updated_on;
+    private Instant updatedOn;
 
     @NotNull
     @Column(name = "title")

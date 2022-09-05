@@ -29,20 +29,24 @@ management:
       enabled: true
 spring:
   datasource:
-    url: "jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/event_calendar?createDatabaseIfNotExist=true&amp"
-    username: "${DB_USER:root}"
-    password: "#{DB_PASSWORD:}"
+#    url: "jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/event_calendar?createDatabaseIfNotExist=true&amp"
+#    username: "${DB_USER:root}"
+#    password: "#{DB_PASSWORD:A4620692!}"
+    url: jdbc:mysql://localhost:3306/event_calendar?createDatabaseIfNotExist=true&amp
+    username: "root"
+    password: "A4620692!"
     continueOnError: true
     driverClassName: com.mysql.cj.jdbc.Driver
     hikari:
       connection-test-query: SELECT 1
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
       dialect: org.hibernate.dialect.MySQL8Dialect
       format_sql: true
       show_sql: true
       use_sql_comments: true
+    open-in-view: false
   main:
     allow-bean-definition-overriding: true
 

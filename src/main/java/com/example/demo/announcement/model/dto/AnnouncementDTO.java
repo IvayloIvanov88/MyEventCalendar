@@ -15,7 +15,7 @@ public class AnnouncementDTO {
 
     private Instant createdOn;
 
-    private Instant updated_on;
+    private Instant updatedOn;
 
     @NotBlank
     private String title;
