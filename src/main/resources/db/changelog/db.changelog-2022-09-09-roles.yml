@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-users-table
+      author: Ivaylo Ivanov
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: roles
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
