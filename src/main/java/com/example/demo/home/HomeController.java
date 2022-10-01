@@ -1,12 +1,13 @@
 package com.example.demo.home;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-//@PreAuthorize("hasRole('USER')")
+@PreAuthorize("hasRole('USER')")
 public class HomeController {
 
     @GetMapping("/")
