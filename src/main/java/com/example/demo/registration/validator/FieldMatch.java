@@ -1,4 +1,4 @@
-package com.example.demo.registration.model;
+package com.example.demo.registration.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

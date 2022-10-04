@@ -1,4 +1,4 @@
-package com.example.demo.registration.model;
+package com.example.demo.registration.validator;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.PropertyAccessorFactory;

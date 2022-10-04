@@ -1,4 +1,4 @@
-package com.example.demo.registration;
+package com.example.demo.registration.web;
 
 import com.example.demo.home.users.service.UserService;
 import com.example.demo.registration.model.RegistrationDTO;

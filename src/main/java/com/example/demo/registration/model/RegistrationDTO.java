@@ -1,5 +1,6 @@
 package com.example.demo.registration.model;
 
+import com.example.demo.registration.validator.FieldMatch;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
