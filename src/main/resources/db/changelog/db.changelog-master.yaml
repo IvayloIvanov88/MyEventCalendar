@@ -7,3 +7,5 @@ databaseChangeLog:
     file: db/changelog/db.changelog-2022-09-09-roles.yml
   - include:
     file: db/changelog/db.changelog-2022-09-09-events.yml
+    -include:
+      file: db/changelog/db.db.changelog-2022-10-04-events.yaml

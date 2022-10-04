@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <link crossorigin="anonymous"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -35,6 +35,9 @@
       </li>
       <li class="nav-item" th:classappend="${activeTab == 'events'}? 'active'">
         <a class="nav-link" th:href="@{/events}">Events</a>
+	      <li sec:authorize="hasRole('ADMIN')" class="nav-item" th:classappend="${activeTab =='stats'}"></li>
+              <a class="nav-link" th:href="@{/stats}">Statistics</a>
+	    </li>
       </li>
     </ul>
 

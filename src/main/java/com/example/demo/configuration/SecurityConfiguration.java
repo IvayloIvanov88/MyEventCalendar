@@ -9,6 +9,7 @@ import lombok.Data;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Data
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration {
 
     public final Oauth2UserSuccessHandler oauth2UserSuccessHandler;
@@ -43,7 +45,7 @@ public class SecurityConfiguration {
         http.
                 authorizeRequests().
                 requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
-                antMatchers("/login", "/login**", "/register").permitAll().
+                antMatchers("/login-error**", "/login**", "/registration").permitAll().
                 antMatchers("/pages/moderators").hasRole(UserRoleEnum.MODERATOR.name()).
                 antMatchers("/pages/admins").hasRole(UserRoleEnum.ADMIN.name()).
                 anyRequest().
@@ -56,14 +58,13 @@ public class SecurityConfiguration {
                 passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
                 defaultSuccessUrl("/", true).
                 // where to go in case that the login failed
-//                        failureForwardUrl("/login-error").
-        failureForwardUrl("/login?param.error=bad_credentials").
+                        failureForwardUrl("/login-error").
                 and().
                 logout().
                 logoutUrl("/logout").
                 invalidateHttpSession(true).
                 deleteCookies("JSESSIONID")
-        //for login with Facebook
+                //for login with Facebook
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
