@@ -1,4 +1,4 @@
-package com.example.demo.event.validation;
+package com.example.demo.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -8,6 +8,6 @@ public class FutureValidator implements ConstraintValidator<Future, LocalDateTim
 
     @Override
     public boolean isValid(LocalDateTime value, ConstraintValidatorContext context) {
-        return value !=null && value.isAfter(LocalDateTime.now());
+        return value != null && value.isAfter(LocalDateTime.now());
     }
 }

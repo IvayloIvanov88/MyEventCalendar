@@ -14,4 +14,9 @@ public class StatsServiceImpl implements StatsService{
     public Object getStartedOn() {
         return null;
     }
+
+    @Override
+    public void incRequests() {
+
+    }
 }

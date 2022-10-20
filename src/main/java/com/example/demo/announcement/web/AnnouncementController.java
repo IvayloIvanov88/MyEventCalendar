@@ -1,10 +1,9 @@
 package com.example.demo.announcement.web;
 
 import com.example.demo.announcement.model.dto.AnnouncementDTO;
-import com.example.demo.announcement.service.AnnouncementsService;
+import com.example.demo.announcement.service.AnnouncementService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,12 +17,12 @@ import javax.validation.Valid;
 @RequestMapping("/announcements")
 public class AnnouncementController {
 
-    private final AnnouncementsService announcementsService;
+    private final AnnouncementService announcementService;
 
     @PreAuthorize("hasRole('USER')")
     @GetMapping
     public String announcement(Model model) {
-        model.addAttribute("announcements", announcementsService.findAll());
+        model.addAttribute("announcements", announcementService.findAll());
 
         return "announcement/announcements";
     }
@@ -52,7 +51,7 @@ public class AnnouncementController {
             return "redirect:/announcements/new";
         }
 
-        announcementsService.createOrUpdateAnnouncement(announcementDTO);
+        announcementService.createOrUpdateAnnouncement(announcementDTO);
 
         return "redirect:/announcements";
     }
@@ -60,7 +59,7 @@ public class AnnouncementController {
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete")
     public String delete(@ModelAttribute(name = "deleteId") long deleteId) {
-        announcementsService.deleteAnnouncement(deleteId);
+        announcementService.deleteAnnouncement(deleteId);
         return "redirect:/announcements";
     }
 }

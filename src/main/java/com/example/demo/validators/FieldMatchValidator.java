@@ -1,4 +1,4 @@
-package com.example.demo.registration.validator;
+package com.example.demo.validators;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.PropertyAccessorFactory;
@@ -28,12 +28,15 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
 
         boolean valid = (first == null && second == null) || (first != null && first.equals(second));
 
-        if (!valid){
-            context
-                    .buildConstraintViolationWithTemplate(message)
-                    .addPropertyNode(firstFieldName)
-                    .addConstraintViolation()
-                    .disableDefaultConstraintViolation();
+        if (!valid) {
+            context.
+                    buildConstraintViolationWithTemplate(message).
+                    addPropertyNode(firstFieldName).
+                    addConstraintViolation().
+                    buildConstraintViolationWithTemplate(message).
+                    addPropertyNode(secondFieldName).
+                    addConstraintViolation().
+                    disableDefaultConstraintViolation();
         }
         return valid;
     }

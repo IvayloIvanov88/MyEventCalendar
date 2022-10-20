@@ -3,7 +3,7 @@ package com.example.demo.announcement.service.impl;
 import com.example.demo.announcement.model.dto.AnnouncementDTO;
 import com.example.demo.announcement.model.entity.AnnouncementEntity;
 import com.example.demo.announcement.repository.AnnouncementRepository;
-import com.example.demo.announcement.service.AnnouncementsService;
+import com.example.demo.announcement.service.AnnouncementService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
-public class AnnouncementsServiceImpl implements AnnouncementsService {
+public class AnnouncementServiceImpl implements AnnouncementService {
 
     private final AnnouncementRepository announcementRepository;
     private final ModelMapper modelMapper;

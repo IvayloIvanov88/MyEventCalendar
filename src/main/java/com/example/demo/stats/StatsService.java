@@ -5,4 +5,6 @@ public interface StatsService {
     Object getRequestCount();
 
     Object getStartedOn();
+
+    void incRequests();
 }

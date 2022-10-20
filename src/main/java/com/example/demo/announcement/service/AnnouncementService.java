@@ -4,7 +4,7 @@ import com.example.demo.announcement.model.dto.AnnouncementDTO;
 
 import java.util.List;
 
-public interface AnnouncementsService {
+public interface AnnouncementService {
     void cleanUpOldAnnouncements();
 
     void createOrUpdateAnnouncement(AnnouncementDTO announcementDTO);
