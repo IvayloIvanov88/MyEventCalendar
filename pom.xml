@@ -199,8 +199,6 @@
             <version>1.12.17</version>
         </dependency>
 
-
-
         <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
         <dependency>
             <groupId>org.hsqldb</groupId>
